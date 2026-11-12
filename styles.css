@@ -94,3 +94,24 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #1e7e34;
 }
+
+/* ---------- Flexbox navigation ---------- */
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+/* ---------- Grid layout ---------- */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Stack into one column on small screens */
+@media (max-width: 700px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
