@@ -34,3 +34,41 @@ if (registerForm) {
     }
   });
 }
+
+// ---------- Lab 8: Functions & Events ----------
+
+// Step 1: hardcoded placeholder data
+const students = [
+  "Amina Wanjiru",
+  "Brian Otieno",
+  "Cynthia Mutua",
+  "David Kiptoo",
+  "Esther Njeri"
+];
+
+// Step 2: add one student to the page
+function addStudentToPage(name) {
+  const list = document.getElementById("student-list");
+  const item = document.createElement("li");
+  item.textContent = name;
+  list.appendChild(item);
+}
+
+// Step 3: loop through the array and add every student
+function displayAllStudents(students) {
+  const list = document.getElementById("student-list");
+  list.innerHTML = ""; // Step 5: clear the list first, so repeated clicks don't duplicate
+
+  for (let i = 0; i < students.length; i++) {
+    addStudentToPage(students[i]);
+  }
+}
+
+// Step 4: button click event
+const showButton = document.getElementById("show-students");
+
+if (showButton) {
+  showButton.addEventListener("click", function () {
+    displayAllStudents(students);
+  });
+}
