@@ -35,40 +35,67 @@ if (registerForm) {
   });
 }
 
-// ---------- Lab 8: Functions & Events ----------
+// ---------- Lab 9: Objects, DOM & Fetch API ----------
 
-// Step 1: hardcoded placeholder data
-const students = [
-  "Amina Wanjiru",
-  "Brian Otieno",
-  "Cynthia Mutua",
-  "David Kiptoo",
-  "Esther Njeri"
-];
+// Demo: an object with properties and a method (Lab 9 objective)
+const demoStudent = {
+  name: "Amina Wanjiru",
+  course: "Computer Science",
+  year: 3,
+  describe() {
+    return this.name + " studies " + this.course + " (Year " + this.year + ")";
+  }
+};
+console.log(demoStudent.describe());
 
-// Step 2: add one student to the page
-function addStudentToPage(name) {
+// Step 2: reads properties from a student object instead of a plain string
+function addStudentToPage(student) {
   const list = document.getElementById("student-list");
   const item = document.createElement("li");
-  item.textContent = name;
+  item.textContent = student.name + " - " + student.course + " (Year " + student.year + ")";
   list.appendChild(item);
 }
 
-// Step 3: loop through the array and add every student
+// Step 3: update the heading with the total count
+function updateStudentCount(count) {
+  const heading = document.getElementById("student-count");
+  if (heading) {
+    heading.textContent = "Registered Students (" + count + ")";
+  }
+}
+
 function displayAllStudents(students) {
   const list = document.getElementById("student-list");
-  list.innerHTML = ""; // Step 5: clear the list first, so repeated clicks don't duplicate
+  list.innerHTML = ""; // clear first so repeated clicks don't duplicate
 
   for (let i = 0; i < students.length; i++) {
     addStudentToPage(students[i]);
   }
+  updateStudentCount(students.length);
 }
 
-// Step 4: button click event
+// Steps 5-6: fetch the JSON, with error handling
+async function loadStudents() {
+  const list = document.getElementById("student-list");
+
+  try {
+    const response = await fetch("students.json");
+
+    if (!response.ok) {
+      throw new Error("HTTP error " + response.status);
+    }
+
+    const students = await response.json();
+    displayAllStudents(students);
+  } catch (error) {
+    console.error("Could not load students:", error);
+    list.innerHTML = "<li>Sorry, the student list could not be loaded. Please try again later.</li>";
+  }
+}
+
+// Button now loads the data from the JSON file
 const showButton = document.getElementById("show-students");
 
 if (showButton) {
-  showButton.addEventListener("click", function () {
-    displayAllStudents(students);
-  });
+  showButton.addEventListener("click", loadStudents);
 }
