@@ -115,3 +115,11 @@ nav {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- Validation messages ---------- */
+.error {
+  display: block;
+  color: #c0392b;
+  font-size: 14px;
+  margin-top: 4px;
+}

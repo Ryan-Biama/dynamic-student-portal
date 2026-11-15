@@ -1,7 +1,7 @@
 [
-  { "name": "Amina Wanjiru", "course": "Computer Science", "year": 3 },
-  { "name": "Brian Otieno", "course": "Information Technology", "year": 2 },
-  { "name": "Cynthia Mutua", "course": "Software Engineering", "year": 1 },
-  { "name": "David Kiptoo", "course": "Business Administration", "year": 4 },
-  { "name": "Esther Njeri", "course": "Computer Science", "year": 2 }
+  { "name": "Amina Wanjiru", "email": "amina@example.com", "course": "Computer Science" },
+  { "name": "Brian Otieno", "email": "brian@example.com", "course": "Information Technology" },
+  { "name": "Cynthia Mutua", "email": "cynthia@example.com", "course": "Software Engineering" },
+  { "name": "David Kiptoo", "email": "david@example.com", "course": "Business Administration" },
+  { "name": "Esther Njeri", "email": "esther@example.com", "course": "Computer Science" }
 ]

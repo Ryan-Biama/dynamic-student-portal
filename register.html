@@ -6,7 +6,7 @@
   <title>Register | Dynamic Student Portal</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="register">
 
   <header>
     <h2>Dynamic Student Portal</h2>
@@ -19,19 +19,19 @@
 
   <main>
     <h1>Student Registration</h1>
+<form id="register-form" action="#" method="post">
 
-    <form action="#" method="post">
+<p>
+  <label for="fullname">Full Name:</label><br>
+  <input type="text" id="fullname" name="fullname">
+  <span class="error" id="name-error"></span>
+</p>
 
-      <p>
-        <label for="fullname">Full Name:</label><br>
-        <input type="text" id="fullname" name="fullname" required>
-      </p>
-
-      <p>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required>
-      </p>
-
+<p>
+  <label for="email">Email:</label><br>
+  <input type="text" id="email" name="email">
+  <span class="error" id="email-error"></span>
+</p>
       <p>
         <label for="dob">Date of Birth:</label><br>
         <input type="date" id="dob" name="dob" required>
